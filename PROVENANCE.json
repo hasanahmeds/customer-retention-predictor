@@ -1,0 +1,197 @@
+{
+  "number": 6,
+  "title": "Customer Retention Predictor",
+  "slug": "customer-retention-predictor",
+  "start": "2025-04-01",
+  "end": "2025-04-18",
+  "repo": "MahtabRanjbar/Customer_Churn_Prediction",
+  "branch": "main",
+  "license": "MIT",
+  "note": "Churn prediction application with FastAPI and Streamlit; verify dataset access separately.",
+  "sha": "1489cc057b69f53b50689fd51c4269bc49194abd",
+  "archive_sha256": "2fe68a3817538fb09c77f41769ed591fb6809babbe32caac4d724b7b337fc265",
+  "imported_at": "2026-10-28T21:31:26.618948+00:00",
+  "history": "Reconstructed import history; dates are not dates of original development.",
+  "upstream_files": {
+    "upstream/.gitignore": {
+      "sha256": "605915eaeeec6b0680f28426d46a99d6bb824f219f01632eb0166bcba3505a91",
+      "mode": "100644",
+      "bytes": 3443
+    },
+    "upstream/LICENSE": {
+      "sha256": "a1491cb5df5abfec25774b7323deef3b66281cbba01c02cb552551409feaed90",
+      "mode": "100644",
+      "bytes": 1070
+    },
+    "upstream/README.md": {
+      "sha256": "d69ce802e27efd83fee276146dffccb56e41ec7f2c996bebe9b753a5bb9a9593",
+      "mode": "100644",
+      "bytes": 6502
+    },
+    "upstream/backend/Dockerfile": {
+      "sha256": "3dcd538a2a2775f7ab03b53ef0edfdd8a551fdd929719ff70c3e1ad19a607013",
+      "mode": "100644",
+      "bytes": 466
+    },
+    "upstream/backend/api/main.py": {
+      "sha256": "f4812b360dd7d480c74bd17ceca5c5068580f3657fb3e29de2625650b2e88737",
+      "mode": "100644",
+      "bytes": 3513
+    },
+    "upstream/backend/api/requirements.txt": {
+      "sha256": "8d86c89b994552bd8902a16f823392b8a0234d19226ce38659b1156c5e5dbf13",
+      "mode": "100644",
+      "bytes": 155
+    },
+    "upstream/backend/api/train_model.py": {
+      "sha256": "7001260c14afd67df6597bac61ea36288ebf72b737ddc3980ba2eddac8dce6a7",
+      "mode": "100644",
+      "bytes": 8002
+    },
+    "upstream/backend/model.pkl": {
+      "sha256": "10c60c911eca659e76f26cea34cefea5679a0f1cf3cce31aa94c266d58189f57",
+      "mode": "100644",
+      "bytes": 149823
+    },
+    "upstream/backend/reports/classification_report.txt": {
+      "sha256": "bbfd23d6e06f21940acb15b749bee6ae48da09433f1d7b2b8fd442978d9a9f8e",
+      "mode": "100644",
+      "bytes": 326
+    },
+    "upstream/backend/reports/confusion_matrix.png": {
+      "sha256": "dce26a42c4e2708b8c939e692d29f592f43a8dcd9ccb6d7107cee711dcc2d1f2",
+      "mode": "100644",
+      "bytes": 10722
+    },
+    "upstream/backend/reports/model_report.md": {
+      "sha256": "ea4b85ea3d3ea925936e1229c1e7a7afa3a6d97d5c7c813f20b2e23ee68fc0d3",
+      "mode": "100644",
+      "bytes": 518
+    },
+    "upstream/backend/reports/roc_curve.png": {
+      "sha256": "cdbea14363c6108256809bb7a4da1e41381d2d36224c20d573943659872120b9",
+      "mode": "100644",
+      "bytes": 26051
+    },
+    "upstream/data/Telco-Customer-Churn.csv": {
+      "sha256": "88be4b93fbe0cc83421af1c503794c97c342eca914c1576db7c276e61d61358a",
+      "mode": "100644",
+      "bytes": 977501
+    },
+    "upstream/data/load_data.py": {
+      "sha256": "bedb4b9064d71f28f66e095ac8b971da4d7089bb19d7ad357a02fc1955ff69b7",
+      "mode": "100644",
+      "bytes": 2971
+    },
+    "upstream/docker-compose.yml": {
+      "sha256": "cd0c96c3dcd96401640a1f74e09b9a22ea6b070d8013b3ef2dcf442e5acbdcef",
+      "mode": "100644",
+      "bytes": 957
+    },
+    "upstream/frontend/Dockerfile": {
+      "sha256": "d035ba1e8cc7e122623bd30d012b00b11f417ebd2eab185bea8ec50c801a0b2b",
+      "mode": "100644",
+      "bytes": 237
+    },
+    "upstream/frontend/app.py": {
+      "sha256": "d1e67ddc20cd207b4a12b0bac89745b84695fa1e6ca0f8742476bcbfc23a24d3",
+      "mode": "100644",
+      "bytes": 7112
+    },
+    "upstream/frontend/components/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mode": "100644",
+      "bytes": 0
+    },
+    "upstream/frontend/components/about.py": {
+      "sha256": "4470d28626149c651848927bd15261b5287fbf32de8087f59a99efb16dcc91f4",
+      "mode": "100644",
+      "bytes": 3295
+    },
+    "upstream/frontend/components/insights.py": {
+      "sha256": "2c26f885abd03f97bd4244c9b1280e9260cda7341cefbf80cc3943677e258f79",
+      "mode": "100644",
+      "bytes": 4537
+    },
+    "upstream/frontend/components/metrics.py": {
+      "sha256": "0f83df0bcf4aecc7da688e47dd90893caf01190fa2fc9abdf7f960442cbbd9d7",
+      "mode": "100644",
+      "bytes": 800
+    },
+    "upstream/frontend/components/plots.py": {
+      "sha256": "c39623d79e740c721ccdb646573126303cf44d6d3ba9634d50aeed6c7cc4d012",
+      "mode": "100644",
+      "bytes": 10689
+    },
+    "upstream/frontend/components/prediction.py": {
+      "sha256": "ea9c6034ba1bfc6e890a71573c0ffa6f39575f42b7ce9a1a1569c9a32098b7bd",
+      "mode": "100644",
+      "bytes": 4493
+    },
+    "upstream/frontend/components/retrain.py": {
+      "sha256": "d14a7507355ea7ef8077e03dfc824e1eceaf5e39e6a43b0bbfa8647d5cea76d6",
+      "mode": "100644",
+      "bytes": 1038
+    },
+    "upstream/frontend/components/sidebar.py": {
+      "sha256": "0994d06b7034f04b7252ba8f68686c266a5e48993b17a6f4d721f8013d1f03e2",
+      "mode": "100644",
+      "bytes": 2349
+    },
+    "upstream/frontend/requirements.txt": {
+      "sha256": "48f2a294c142b2592ec060bc9a5452e1e2c8d856d84f77e90cb00538b2a69dfe",
+      "mode": "100644",
+      "bytes": 91
+    },
+    "upstream/frontend/utils.py": {
+      "sha256": "f07098faf2146c0cfc400dcf378b50528dfd12e784e021de5043931a2ab4fb81",
+      "mode": "100644",
+      "bytes": 578
+    },
+    "upstream/media/demo.gif": {
+      "sha256": "c42e886fda33fee36d1eb7054cff7cd8914716979db6fa3ac6986b0f56b8ef52",
+      "mode": "100644",
+      "bytes": 5419552
+    },
+    "upstream/postgres/create_schema.sql": {
+      "sha256": "294cc6883d07bcf475e774aef9ab5805fa58faefde1ae6d21a1f87beff2cfb2e",
+      "mode": "100644",
+      "bytes": 712
+    }
+  },
+  "excluded_git_metadata": [],
+  "history_repair": {
+    "pattern": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "approved_calendar": true,
+    "seed": 20251028,
+    "previous_main": "c8a00fb856a9e284108455774da04ac43a2953fc",
+    "daily_counts": {
+      "2025-04-01": 4,
+      "2025-04-02": 1,
+      "2025-04-03": 5,
+      "2025-04-04": 0,
+      "2025-04-05": 1,
+      "2025-04-06": 1,
+      "2025-04-07": 5,
+      "2025-04-08": 4,
+      "2025-04-09": 3,
+      "2025-04-10": 0,
+      "2025-04-11": 2,
+      "2025-04-12": 1,
+      "2025-04-13": 0,
+      "2025-04-14": 3,
+      "2025-04-15": 0,
+      "2025-04-16": 3,
+      "2025-04-17": 3,
+      "2025-04-18": 0
+    },
+    "description": "Reconstructed import timestamps; not original development dates."
+  }
+}

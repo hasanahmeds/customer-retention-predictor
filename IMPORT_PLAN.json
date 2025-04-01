@@ -1,0 +1,262 @@
+[
+  {
+    "timestamp": "2025-04-01T13:05:32+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 1/36",
+    "prefix_bytes": {
+      "upstream/LICENSE": 1070
+    }
+  },
+  {
+    "timestamp": "2025-04-01T14:08:15+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 2/36",
+    "prefix_bytes": {
+      "upstream/backend/Dockerfile": 466
+    }
+  },
+  {
+    "timestamp": "2025-04-01T16:23:49+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 3/36",
+    "prefix_bytes": {
+      "upstream/docker-compose.yml": 957
+    }
+  },
+  {
+    "timestamp": "2025-04-01T17:18:17+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 4/36",
+    "prefix_bytes": {
+      "upstream/data/load_data.py": 2712
+    }
+  },
+  {
+    "timestamp": "2025-04-02T21:06:22+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 5/36",
+    "prefix_bytes": {
+      "upstream/data/load_data.py": 2971
+    }
+  },
+  {
+    "timestamp": "2025-04-03T12:34:59+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 6/36",
+    "prefix_bytes": {
+      "upstream/data/Telco-Customer-Churn.csv": 977501,
+      "upstream/postgres/create_schema.sql": 712
+    }
+  },
+  {
+    "timestamp": "2025-04-03T15:25:43+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 7/36",
+    "prefix_bytes": {
+      "upstream/.gitignore": 3443
+    }
+  },
+  {
+    "timestamp": "2025-04-03T19:08:40+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 8/36",
+    "prefix_bytes": {
+      "upstream/backend/model.pkl": 149823,
+      "upstream/backend/reports/classification_report.txt": 326
+    }
+  },
+  {
+    "timestamp": "2025-04-03T22:05:42+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 9/36",
+    "prefix_bytes": {
+      "upstream/backend/reports/confusion_matrix.png": 10722
+    }
+  },
+  {
+    "timestamp": "2025-04-03T22:37:16+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 10/36",
+    "prefix_bytes": {
+      "upstream/backend/reports/model_report.md": 518,
+      "upstream/backend/reports/roc_curve.png": 26051
+    }
+  },
+  {
+    "timestamp": "2025-04-05T21:36:02+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 11/36",
+    "prefix_bytes": {
+      "upstream/media/demo.gif": 5419552
+    }
+  },
+  {
+    "timestamp": "2025-04-06T19:53:12+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 12/36",
+    "prefix_bytes": {
+      "upstream/README.md": 6502,
+      "upstream/backend/api/main.py": 1184
+    }
+  },
+  {
+    "timestamp": "2025-04-07T12:20:18+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 13/36",
+    "prefix_bytes": {
+      "upstream/backend/api/main.py": 2618
+    }
+  },
+  {
+    "timestamp": "2025-04-07T14:18:44+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 14/36",
+    "prefix_bytes": {
+      "upstream/backend/api/main.py": 3513,
+      "upstream/backend/api/requirements.txt": 155
+    }
+  },
+  {
+    "timestamp": "2025-04-07T17:35:17+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 15/36",
+    "prefix_bytes": {
+      "upstream/backend/api/train_model.py": 1182
+    }
+  },
+  {
+    "timestamp": "2025-04-07T19:27:04+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 16/36",
+    "prefix_bytes": {
+      "upstream/backend/api/train_model.py": 4165
+    }
+  },
+  {
+    "timestamp": "2025-04-07T21:31:45+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 17/36",
+    "prefix_bytes": {
+      "upstream/backend/api/train_model.py": 5715
+    }
+  },
+  {
+    "timestamp": "2025-04-08T12:02:16+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 18/36",
+    "prefix_bytes": {
+      "upstream/backend/api/train_model.py": 8002
+    }
+  },
+  {
+    "timestamp": "2025-04-08T17:47:15+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 19/36",
+    "prefix_bytes": {
+      "upstream/frontend/app.py": 1623
+    }
+  },
+  {
+    "timestamp": "2025-04-08T18:11:41+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 20/36",
+    "prefix_bytes": {
+      "upstream/frontend/app.py": 6487
+    }
+  },
+  {
+    "timestamp": "2025-04-08T22:06:32+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 21/36",
+    "prefix_bytes": {
+      "upstream/frontend/app.py": 7112
+    }
+  },
+  {
+    "timestamp": "2025-04-09T13:56:35+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 22/36",
+    "prefix_bytes": {
+      "upstream/frontend/components/__init__.py": 0,
+      "upstream/frontend/components/about.py": 2728
+    }
+  },
+  {
+    "timestamp": "2025-04-09T17:30:56+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 23/36",
+    "prefix_bytes": {
+      "upstream/frontend/components/about.py": 3295
+    }
+  },
+  {
+    "timestamp": "2025-04-09T19:53:12+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 24/36",
+    "prefix_bytes": {
+      "upstream/frontend/components/insights.py": 3851
+    }
+  },
+  {
+    "timestamp": "2025-04-11T14:41:40+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 25/36",
+    "prefix_bytes": {
+      "upstream/frontend/components/insights.py": 4537
+    }
+  },
+  {
+    "timestamp": "2025-04-11T14:42:12+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 26/36",
+    "prefix_bytes": {
+      "upstream/frontend/components/metrics.py": 800,
+      "upstream/frontend/components/plots.py": 1316
+    }
+  },
+  {
+    "timestamp": "2025-04-12T16:22:43+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 27/36",
+    "prefix_bytes": {
+      "upstream/frontend/components/plots.py": 2559
+    }
+  },
+  {
+    "timestamp": "2025-04-14T14:33:30+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 28/36",
+    "prefix_bytes": {
+      "upstream/frontend/components/plots.py": 6268
+    }
+  },
+  {
+    "timestamp": "2025-04-14T18:28:26+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 29/36",
+    "prefix_bytes": {
+      "upstream/frontend/components/plots.py": 8183
+    }
+  },
+  {
+    "timestamp": "2025-04-14T22:08:13+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 30/36",
+    "prefix_bytes": {
+      "upstream/frontend/components/plots.py": 10689
+    }
+  },
+  {
+    "timestamp": "2025-04-16T13:51:47+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 31/36",
+    "prefix_bytes": {
+      "upstream/frontend/components/prediction.py": 1396
+    }
+  },
+  {
+    "timestamp": "2025-04-16T14:35:23+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 32/36",
+    "prefix_bytes": {
+      "upstream/frontend/components/prediction.py": 4493
+    }
+  },
+  {
+    "timestamp": "2025-04-16T21:39:59+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 33/36",
+    "prefix_bytes": {
+      "upstream/frontend/components/retrain.py": 1038
+    }
+  },
+  {
+    "timestamp": "2025-04-17T15:20:01+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 34/36",
+    "prefix_bytes": {
+      "upstream/frontend/components/sidebar.py": 2349
+    }
+  },
+  {
+    "timestamp": "2025-04-17T20:24:22+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 35/36",
+    "prefix_bytes": {
+      "upstream/frontend/Dockerfile": 237
+    }
+  },
+  {
+    "timestamp": "2025-04-17T21:05:39+00:00",
+    "message": "chore(import): reconstruct MahtabRanjbar/Customer_Churn_Prediction slice 36/36",
+    "prefix_bytes": {
+      "upstream/frontend/requirements.txt": 91,
+      "upstream/frontend/utils.py": 578
+    }
+  }
+]
