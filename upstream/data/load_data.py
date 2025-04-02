@@ -78,3 +78,10 @@ if duplicates_removed > 0:
 
 # --- Convert data types ---
 df['senior_citizen'] = df['senior_citizen'].astype(int)
+
+# --- Insert Data into the Database ---
+try:
+    df.to_sql('customers', engine, if_exists='append', index=False)
+    print("Data loaded into the 'customers' table successfully.")
+except Exception as e:
+    print("Error inserting data into the database:", e)
