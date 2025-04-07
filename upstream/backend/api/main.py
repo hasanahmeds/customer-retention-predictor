@@ -78,3 +78,30 @@ def make_feature_df(data: CustomerInput) -> pd.DataFrame:
         'tenure', 'monthly_charges', 'total_charges', 'avg_charge_per_month',
         'services_count', 'contract', 'gender', 'senior_citizen', 'partner',
         'dependents', 'internet_service', 'paperless_billing', 'payment_method',
+        # the 7 flags:
+        'multiple_lines', 'online_security', 'online_backup',
+        'device_protection', 'tech_support', 'streaming_tv', 'streaming_movies',
+        'tenure_bucket'
+    ]
+    return pd.DataFrame([d], columns=cols)
+
+# --- Prediction Endpoint ---
+@app.post("/predict")
+async def predict_churn(data: CustomerInput):
+    if model is None:
+        raise HTTPException(status_code=503, detail="Model not loaded")
+
+    try:
+        df = make_feature_df(data)
+        proba = model.predict_proba(df)[0, 1]
+        threshold = 0.5  # or your tuned threshold
+        prediction = "Yes" if proba >= threshold else "No"
+        return {"prediction": prediction, "probability": proba}
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Prediction error: {e}")
+
+# --- Health Check ---
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
