@@ -118,3 +118,43 @@ def train_and_tune(X_train, y_train):
     param_dist = {
         'model__n_estimators':     [100, 200, 300, 500],
         'model__learning_rate':    [0.01, 0.03, 0.05, 0.1],
+        'model__max_depth':        [3, 5, 7],
+        'model__subsample':        [0.6, 0.8, 1.0],
+        'model__min_samples_split':[2, 5, 10],
+        'model__min_samples_leaf': [1, 3, 5]
+    }
+
+    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+    search = RandomizedSearchCV(
+        pipe,
+        param_distributions=param_dist,
+        n_iter=20,
+        scoring='roc_auc',
+        cv=cv,
+        n_jobs=-1,
+        verbose=1,
+        random_state=42
+    )
+    search.fit(X_train, y_train)
+    print("▶️ Best GBM params:", search.best_params_)
+    print("▶️ Best CV ROC AUC:", search.best_score_)
+    return search.best_estimator_
+
+# ─── 4) Threshold Optimization ────────────────────────────────────────────────
+def find_best_threshold(y_true, y_proba):
+    best_thr, best_f1 = 0.5, 0
+    for thr in np.linspace(0.1, 0.9, 81):
+        preds = (y_proba >= thr).astype(int)
+        f1 = f1_score(y_true, preds)
+        if f1 > best_f1:
+            best_f1, best_thr = f1, thr
+    return best_thr, best_f1
+
+# ─── 5) Evaluate & Report ────────────────────────────────────────────────────
+def evaluate_and_report(model, X_test, y_test, threshold):
+    os.makedirs('reports', exist_ok=True)
+
+    proba = model.predict_proba(X_test)[:,1]
+    preds = (proba >= threshold).astype(int)
+
+    # Classification report
