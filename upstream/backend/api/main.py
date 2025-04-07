@@ -38,3 +38,43 @@ def make_feature_df(data: CustomerInput) -> pd.DataFrame:
 
     # 1) Derive total_charges & avg_charge_per_month
     d['total_charges'] = d['tenure'] * d['monthly_charges']
+    d['avg_charge_per_month'] = d['total_charges'] / (d['tenure'] + 1e-6)
+
+    # 2) Tenure bucket
+    t = d['tenure']
+    if t <= 12:
+        d['tenure_bucket'] = '0-12'
+    elif t <= 24:
+        d['tenure_bucket'] = '12-24'
+    elif t <= 48:
+        d['tenure_bucket'] = '24-48'
+    else:
+        d['tenure_bucket'] = '48+'
+
+    # 3) Reconstruct the 7 service flags from services_list
+    svc_map = {
+        "Multiple Lines":     "multiple_lines",
+        "Online Security":    "online_security",
+        "Online Backup":      "online_backup",
+        "Device Protection":  "device_protection",
+        "Tech Support":       "tech_support",
+        "Streaming TV":       "streaming_tv",
+        "Streaming Movies":   "streaming_movies",
+    }
+    # initialize all to "No"
+    for col in svc_map.values():
+        d[col] = "No"
+    # mark selected as "Yes"
+    for svc in d.pop('services_list', []):
+        key = svc_map.get(svc)
+        if key:
+            d[key] = "Yes"
+
+    # 4) Compute services_count if your pipeline uses it
+    d['services_count'] = sum(1 for col in svc_map.values() if d[col] == "Yes")
+
+    # 5) Build DataFrame with exact column order your pipeline expects
+    cols = [
+        'tenure', 'monthly_charges', 'total_charges', 'avg_charge_per_month',
+        'services_count', 'contract', 'gender', 'senior_citizen', 'partner',
+        'dependents', 'internet_service', 'paperless_billing', 'payment_method',
