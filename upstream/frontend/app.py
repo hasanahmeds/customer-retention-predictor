@@ -118,3 +118,23 @@ def main():
         with st.expander("📈 Correlations and Feature Importance"):
             # The correlation heatmap was shown in Insights, but we add a scatter matrix here.
             st.plotly_chart(plot_scatter_matrix(filtered_data), use_container_width=True, key="plot_scatter_matrix_2")
+        
+        # 6. Segment-Based Analysis (Clustering)
+        with st.expander("🧠 Segment-Based Analysis"):
+            st.plotly_chart(plot_kmeans_clusters(filtered_data), use_container_width=True, key="plot_kmeans_clusters")
+    
+    # --- Insights Tab ---
+    with tabs[1]:
+        insights_tab(filtered_data)
+
+    # --- Prediction Tab ---
+    with tabs[2]:
+        st.header("🔮 Prediction")
+        st.markdown("Enter customer details below to predict churn using our trained model.")
+        prediction_form()
+
+    # --- About Tab ---
+    with tabs[3]:
+        about_tab()
+if __name__ == "__main__":
+    main()
