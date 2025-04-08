@@ -158,3 +158,77 @@ def evaluate_and_report(model, X_test, y_test, threshold):
     preds = (proba >= threshold).astype(int)
 
     # Classification report
+    cr = classification_report(y_test, preds)
+    with open('reports/classification_report.txt','w') as f:
+        f.write(cr)
+
+    # Confusion matrix
+    cm = confusion_matrix(y_test, preds)
+    fig, ax = plt.subplots()
+    ax.imshow(cm, cmap='Blues')
+    ax.set_xticks([0,1]); ax.set_xticklabels(['Stay','Churn'])
+    ax.set_yticks([0,1]); ax.set_yticklabels(['Stay','Churn'])
+    ax.set_xlabel('Predicted'); ax.set_ylabel('Actual')
+    for i in (0,1):
+        for j in (0,1):
+            ax.text(j, i, cm[i,j], ha='center', va='center')
+    fig.savefig('reports/confusion_matrix.png')
+    plt.close(fig)
+
+    # ROC curve
+    fig2, ax2 = plt.subplots()
+    RocCurveDisplay.from_predictions(y_test, proba, ax=ax2)
+    fig2.savefig('reports/roc_curve.png')
+    plt.close(fig2)
+
+    # Markdown summary
+    auc = roc_auc_score(y_test, proba)
+    f1v = f1_score(y_test, preds)
+    md = f"""\
+# Gradient Boosting Churn Model Report
+
+**Test ROC AUC:** {auc:.4f}  
+**Test F1 (@thr={threshold:.2f}):** {f1v:.3f}
+
+## Classification Report  
+{cr}
+
+scss
+Copy
+Edit
+
+![](confusion_matrix.png) ![](roc_curve.png)
+"""
+    with open('reports/model_report.md','w') as f:
+        f.write(md)
+
+# ─── 6) Main ─────────────────────────────────────────────────────────────────
+if __name__ == '__main__':
+    # Load & engineer
+    df = load_and_engineer()
+
+    # Split
+    X = df.drop('churn', axis=1)
+    y = df['churn']
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, stratify=y, random_state=42
+    )
+
+    # Train & tune
+    print("🔍 Tuning Gradient Boosting...")
+    gbm_pipe = train_and_tune(X_train, y_train)
+
+    # Threshold tuning
+    print("🔧 Finding best classification threshold...")
+    proba_test = gbm_pipe.predict_proba(X_test)[:,1]
+    thr, f1v = find_best_threshold(y_test, proba_test)
+    print(f"👉 Best threshold = {thr:.2f}, F1 = {f1v:.3f}")
+
+    # Evaluate & save
+    print("📊 Generating reports...")
+    evaluate_and_report(gbm_pipe, X_test, y_test, thr)
+
+    # Persist model
+    with open('model.pkl','wb') as f:
+        pickle.dump(gbm_pipe, f)
+    print("✅ Done. Model and reports are saved.")
