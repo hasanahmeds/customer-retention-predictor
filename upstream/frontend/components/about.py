@@ -38,3 +38,14 @@ def about_tab():
                 <strong>Containerization:</strong> Docker Compose
             </p>
             <h3 style="color: #f0f0f0;">Future Enhancements</h3>
+            <p>
+                Future plans include integration of advanced machine learning models, real-time data updates, automated alerts, and deeper integration with business intelligence tools for enhanced reporting.
+            </p>
+            <h3 style="color: #f0f0f0;">Contact & Credits</h3>
+            <p>
+                For more details, please refer to the project documentation on GitHub. For questions or suggestions, contact us at <em>your-email@example.com</em>.
+            </p>
+        </div>
+        """, 
+        unsafe_allow_html=True
+    )
