@@ -78,3 +78,11 @@ def insights_tab(df):
     with st.expander("Deep Dive Analysis"):
         st.markdown("""
         **Deep Dive Insights:**
+        - **Segmentation:** Detailed segmentation by contract type, internet service, and payment method reveals key drivers of churn.
+        - **Correlation Patterns:** The correlation heatmap shows that while tenure and monthly charges have an inverse relationship, this trend varies across segments.
+        - **Actionable Strategies:** These insights suggest targeted retention strategies—such as revising contract terms or pricing for high-risk segments—could reduce churn.
+        - **Advanced Analysis:** Consider employing predictive modeling techniques (e.g., logistic regression or decision trees) to further quantify the impact of these factors.
+        """)
+        
+
+
