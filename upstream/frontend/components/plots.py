@@ -38,3 +38,43 @@ def plot_tenure_vs_charges(df):
         color_discrete_sequence=px.colors.qualitative.Plotly,
         hover_data={'gender': True, 'contract': True}
     )
+    fig.update_layout(
+        xaxis_title="Tenure (Months)",
+        yaxis_title="Monthly Charges ($)",
+        title_font=dict(size=18, family="Segoe UI", color="#111111"),
+        legend_title="Churn Status",
+        hovermode="closest"
+    )
+    fig.update_traces(
+        marker=dict(size=10, symbol="circle"),
+        hovertemplate="<b>Tenure:</b> %{x} months<br><b>Monthly Charges:</b> $%{y:.2f}<br><b>Gender:</b> %{customdata[0]}<br><b>Contract:</b> %{customdata[1]}<extra></extra>"
+    )
+    return fig
+
+def plot_churn_distribution(df):
+    churn_counts = df['churn'].value_counts().reset_index()
+    churn_counts.columns = ['churn', 'count']
+    fig = px.pie(
+        churn_counts,
+        names='churn',
+        values='count',
+        title="Churn Distribution",
+        hole=0.4,
+        template="plotly_white"
+    )
+    fig.update_traces(textinfo='percent+label')
+    return fig
+
+def plot_tenure_boxplot(df):
+    fig = px.box(
+        df,
+        x='churn',
+        y='tenure',
+        title="Tenure Distribution by Churn",
+        template="plotly_white"
+    )
+    fig.update_layout(
+        xaxis_title="Churn",
+        yaxis_title="Tenure (Months)",
+        title_font=dict(size=18, family="Segoe UI", color="#111111")
+    )
