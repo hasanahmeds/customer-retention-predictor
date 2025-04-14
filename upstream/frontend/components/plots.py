@@ -158,3 +158,43 @@ def plot_senior_vs_churn(df):
     return fig
 
 def plot_partner_dependents_vs_churn(df):
+    df['PartnerDependents'] = df['partner'] + " & " + df['dependents']
+    pd_counts = df.groupby(['PartnerDependents', 'churn']).size().reset_index(name='count')
+    fig = px.bar(pd_counts, x='PartnerDependents', y='count', color='churn',
+                 title="Partner & Dependents vs. Churn", barmode='group', template="plotly_white")
+    fig.update_layout(xaxis_title="Partner & Dependents", yaxis_title="Count")
+    return fig
+
+def plot_gender_vs_churn(df):
+    gender_counts = df.groupby(['gender', 'churn']).size().reset_index(name='count')
+    fig = px.bar(gender_counts, x='gender', y='count', color='churn',
+                 title="Gender vs. Churn", barmode='group', template="plotly_white")
+    fig.update_layout(xaxis_title="Gender", yaxis_title="Count")
+    return fig
+
+def plot_service_usage_vs_churn(df):
+    # Updated service columns to match the renamed lowercase columns.
+    service_cols = [
+        "multiple_lines", "online_security", "online_backup",
+        "device_protection", "tech_support", "streaming_tv", "streaming_movies"
+    ]
+    # Ensure only columns present in the DataFrame are used.
+    available_cols = [col for col in service_cols if col in df.columns]
+    if not available_cols:
+        return None
+
+    melted = df.melt(id_vars=['customer_id', 'churn'], value_vars=available_cols, 
+                     var_name="Service", value_name="Usage")
+    # Convert values to binary: assume 'Yes' means 1 and anything else is 0.
+    melted['Usage'] = melted['Usage'].apply(lambda x: 1 if str(x).strip().lower() == 'yes' else 0)
+    usage = melted.groupby(['Service', 'churn'])['Usage'].sum().reset_index()
+    fig = px.bar(
+        usage,
+        x='Service',
+        y='Usage',
+        color='churn',
+        barmode='group',
+        title="Service Usage vs. Churn",
+        template="plotly_white"
+    )
+    fig.update_layout(xaxis_title="Service", yaxis_title="Count of 'Yes'")
