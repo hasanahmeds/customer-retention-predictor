@@ -198,3 +198,73 @@ def plot_service_usage_vs_churn(df):
         template="plotly_white"
     )
     fig.update_layout(xaxis_title="Service", yaxis_title="Count of 'Yes'")
+    return fig
+
+
+def plot_paperlessbilling_vs_churn(df):
+    if 'paperless_billing' in df.columns:
+        pb_counts = df.groupby(['paperless_billing', 'churn']).size().reset_index(name='count')
+        fig = px.bar(pb_counts, x='paperless_billing', y='count', color='churn',
+                     title="Paperless Billing vs. Churn", barmode='group', template="plotly_white")
+        fig.update_layout(xaxis_title="Paperless Billing", yaxis_title="Count")
+        return fig
+    else:
+        return None
+
+def plot_totalcharges_boxplot(df):
+    if 'total_charges' in df.columns:
+        fig = px.box(df, x='churn', y='total_charges', title="Total Charges by Churn", template="plotly_white")
+        fig.update_layout(xaxis_title="Churn", yaxis_title="Total Charges ($)")
+        return fig
+    else:
+        return None
+
+def plot_scatter_matrix(df):
+    # Choose numeric columns to include. Adjust if needed.
+    numeric_columns = ['tenure', 'monthly_charges']
+    if 'total_charges' in df.columns:
+        numeric_columns.append('total_charges')
+    
+    fig = px.scatter_matrix(
+        df,
+        dimensions=numeric_columns,
+        color='churn',
+        template="plotly_white",
+        title="Scatter Matrix for Numerical Features",
+        height=800,
+        width=800,
+        hover_data=df.columns
+    )
+    # Hide diagonal to avoid overlapping markers and reduce clutter.
+    fig.update_traces(diagonal_visible=False, marker=dict(size=3, opacity=0.7))
+    
+    # Adjust layout for improved spacing.
+    fig.update_layout(
+        title_font=dict(size=18, family="Segoe UI", color="#111111"),
+        margin=dict(l=50, r=50, b=50, t=50),
+        plot_bgcolor="white"
+    )
+    return fig
+
+def plot_kmeans_clusters(df):
+    numeric_columns = ['tenure', 'monthly_charges']
+    if 'total_charges' in df.columns:
+        numeric_columns.append('total_charges')
+    data_numeric = df[numeric_columns].dropna()
+    if data_numeric.empty:
+        return None
+    kmeans = KMeans(n_clusters=3, random_state=42)
+    clusters = kmeans.fit_predict(data_numeric)
+    data_numeric['Cluster'] = clusters.astype(str)
+    data_numeric['churn'] = df.loc[data_numeric.index, 'churn']
+    fig = px.scatter(
+        data_numeric,
+        x='tenure',
+        y='monthly_charges',
+        color='Cluster',
+        symbol='churn',
+        title="KMeans Clusters of Customers",
+        template="plotly_white"
+    )
+    fig.update_layout(xaxis_title="Tenure (Months)", yaxis_title="Monthly Charges ($)")
+    return fig
