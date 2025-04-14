@@ -78,3 +78,83 @@ def plot_tenure_boxplot(df):
         yaxis_title="Tenure (Months)",
         title_font=dict(size=18, family="Segoe UI", color="#111111")
     )
+    return fig
+
+def plot_payment_method_breakdown(df):
+    pm_data = df.groupby(['payment_method', 'churn']).size().reset_index(name='count')
+    fig = px.bar(
+        pm_data,
+        x='payment_method',
+        y='count',
+        color='churn',
+        barmode='group',
+        title="Payment Method Breakdown by Churn",
+        template="plotly_white"
+    )
+    fig.update_layout(xaxis_title="Payment Method", yaxis_title="Count")
+    return fig
+
+def plot_contract_churn(df):
+    contract_data = df.groupby(['contract', 'churn']).size().reset_index(name='count')
+    fig = px.bar(
+        contract_data,
+        x='contract',
+        y='count',
+        color='churn',
+        barmode='group',
+        title="Churn by Contract Type",
+        template="plotly_white"
+    )
+    fig.update_layout(xaxis_title="Contract Type", yaxis_title="Count")
+    return fig
+
+def plot_sunburst_chart(df):
+    fig = px.sunburst(
+        df,
+        path=['contract', 'payment_method', 'churn'],
+        title="Customer Segmentation by Contract, Payment Method, and Churn",
+        template="plotly_white"
+    )
+    return fig
+
+def plot_internet_service_donut(df):
+    internet_data = df.groupby(['internet_service', 'churn']).size().reset_index(name='count')
+    fig = px.pie(
+        internet_data,
+        names='internet_service',
+        values='count',
+        title="Internet Service Usage",
+        hole=0.5,
+        template="plotly_white"
+    )
+    return fig
+
+def expander_explanation(plot_name):
+    explanations = {
+        "churn_distribution": "This donut chart displays the overall proportion of customers who have churned versus those who have not. It provides a quick visual summary of the churn status.",
+        "monthly_charges": "This histogram, with a marginal box plot, illustrates the distribution of monthly charges among customers. The box shows medians, quartiles, and potential outliers.",
+        "tenure_vs_charges": "This scatter plot depicts the relationship between customer tenure and monthly charges. The OLS trendline reveals the overall trend and highlights clusters or outliers.",
+        "tenure_boxplot": "This box plot compares tenure distributions for churned vs. non-churned customers, highlighting differences in customer loyalty.",
+        "payment_method": "This bar chart shows how payment methods correlate with churn, indicating which methods may be linked to higher churn rates.",
+        "contract_churn": "This visualization breaks down churn by contract type, showing that month-to-month contracts often have higher churn rates.",
+        "sunburst": "The sunburst chart provides a multi-level view of customer segmentation by contract type, payment method, and churn status.",
+        "internet_service": "This donut chart represents the usage of different internet service types and their relation to churn."
+    }
+    return explanations.get(plot_name, "No explanation available.")
+
+def plot_null_values_heatmap(df):
+    if df.isnull().sum().sum() == 0:
+        return None
+    missing = df.isnull().astype(int)
+    fig = px.imshow(missing, color_continuous_scale='Blues', title="Missing Values Heatmap", template="plotly_white")
+    return fig
+
+def plot_senior_vs_churn(df):
+    df['SeniorCitizenCat'] = df['senior_citizen'].apply(lambda x: 'Yes' if x == 1 else 'No')
+    senior_counts = df.groupby(['SeniorCitizenCat', 'churn']).size().reset_index(name='count')
+    fig = px.bar(senior_counts, x='SeniorCitizenCat', y='count', color='churn',
+                 title="Senior Citizen vs. Churn", barmode='group', template="plotly_white")
+    fig.update_layout(xaxis_title="Senior Citizen", yaxis_title="Count")
+    return fig
+
+def plot_partner_dependents_vs_churn(df):
